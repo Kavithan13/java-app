@@ -15,6 +15,16 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Build Docker image') {
+            steps {
+                sh 'docker build -t simple-java-app:latest .'
+            }
+        }
+        stage('Run Container (Test)') {
+            steps {
+                sh 'docker run --rm simple-java-app:latest'
+            }
+        }
         stage('Archive Artifacts') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
