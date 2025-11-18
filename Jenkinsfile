@@ -17,12 +17,12 @@ pipeline {
         }
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t simple-java-app:latest .'
+                sh 'docker build -t sample-java-app:latest .'
             }
         }
         stage('Run Container (Test)') {
             steps {
-                sh 'docker run --rm simple-java-app:latest'
+                sh 'docker run --rm sample-java-app:latest'
             }
         }
         stage('Archive Artifacts') {
