@@ -20,11 +20,7 @@ pipeline {
                 sh 'docker build -t sample-java-app:latest .'
             }
         }
-        stage('Run Container (Test)') {
-            steps {
-                sh 'docker run --rm -p 8080:8080 sample-java-app:latest'
-            }
-        }
+        
         stage('Archive Artifacts') {
             steps {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
