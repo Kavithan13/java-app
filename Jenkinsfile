@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Run Container (Test)') {
             steps {
-                sh 'docker run --rm sample-java-app:latest'
+                sh 'docker run --rm -p 8080:8080 sample-java-app:latest'
             }
         }
         stage('Archive Artifacts') {
