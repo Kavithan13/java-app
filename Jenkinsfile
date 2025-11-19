@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'git@github.com:Kavithan13/java-app.git'
+                git branch: 'main', url: 'git@github.com:Kavithan13/java-app.git',
                 credentialsId: 'github-ssh'
             }
         }
